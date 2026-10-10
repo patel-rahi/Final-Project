@@ -80,13 +80,13 @@ comparitech_df = comparitech_df.merge(
     how="left"
 ).drop(columns="Country Code")
 
-comparitech_df.to_csv("final.csv", index=False)
+comparitech_df.to_csv("datasets/Final Dataset.csv", index=False)
 
 
 # ----------------------------------------------------------------------------------------------------------
 # Data Cleaning of Final Merged Dataset
 # ----------------------------------------------------------------------------------------------------------
-final_df = pd.read_csv("final.csv", dtype={"numeric_code": str})
+final_df = pd.read_csv("datasets/Final Dataset.csv", dtype={"numeric_code": str})
 
 final_df.columns = (
     final_df.columns
@@ -170,7 +170,7 @@ final_df["digital_score"] = (final_df["users_score"] + final_df["law_score"]) / 
 # joint_score = average of privacy_score and digital_score (0-100)
 final_df["joint_score"] = (final_df["privacy_score"] + final_df["digital_score"]) / 2
 
-final_df.to_csv("final.csv", index=False)
+final_df.to_csv("datasets/Final Dataset.csv", index=False)
 
 
 # ----------------------------------------------------------------------------------------------------------
